@@ -24,7 +24,7 @@ architecture rtl of spi_master is
     type state_type is (IDLE, TRANSMISSION); 
     signal state : state_type;
 
-    signal data_bits : std_logic_vector(7 downto 0):="00000000";
+    signal data_bits : std_logic_vector(10 downto 0):="0000000000";
     signal sclk_counter : integer;
     signal clk_counter : integer;
     signal sclk_sig : std_logic;
@@ -50,9 +50,9 @@ begin
 -- );
 
 --after 3 clocks, we will get a stable value
-SYNCHRONIZER: process (clk) 
+SYNCHRONIZER: process (sclk) 
 begin
-   if rising_edge(clk) then
+   if rising_edge(sclk) then
       inputFF  <= miso;
       inputFF2 <= inputFF;
       stable_miso <= inputFF2;
@@ -102,14 +102,18 @@ begin
             sclk <= sclk_sig;
             
          -- the 16 bits received - we are saving 8 bits using right shift 
-         if (sclk_counter > 4 and sclk_counter < 12)
+         if (sclk_counter > 4 and sclk_counter < 15) --read for another 3 cycles
             -- accept 1 bit       
-            data_bits(7) <= stable_miso; --need to account for delay here. count either clk / sclk
+            -- increased data bit by 3 to account for delay
+            -- data inside data_bit will be XXX...101
+
+            data_bits(10) <= stable_miso; 
             -- right shift by 1 
             data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
                 
          elsif (sclk_counter = 16) then 
-                data <= data_bits;
+            --remove garabage bit delay we put into data_bits and only grab the 8bits
+                data <= data_bits(7 downto 0);  
                 state <= IDLE;
          end if;
 
