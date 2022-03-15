@@ -28,6 +28,11 @@ architecture rtl of spi_master is
     signal sclk_counter : integer;
     signal clk_counter : integer;
     signal sclk_sig : std_logic;
+
+    --flipflop signals
+    signal inputFF: std_logic;
+    signal inputFF2: std_logic;
+    signal stable_miso: std_logic;
     
 
 begin 
@@ -43,6 +48,16 @@ begin
 --     i_rst => rst;
 --     clock => sclk_sig
 -- );
+
+--after 3 clocks, we will get a stable value
+SYNCHRONIZER: process (clk) 
+begin
+   if rising_edge(clk) then
+      inputFF  <= miso;
+      inputFF2 <= inputFF;
+      stable_miso <= inputFF2;
+   end if;
+end process;
 
 
 
@@ -60,12 +75,17 @@ begin
       case state is
         
         when IDLE => 
+
+          -- outputs
             data_bits <= (others => '0');
             sclk <= '1';
+            cs <= '1';
+            valid <= '0';
+
+            -- counters
             sclk_counter <= 0;
             clk_counter <= 0;
-            data_bits <= "00000000";
-            cs<= '1';
+            
             if (ready = '1') then
                 state <= TRANSMISSION
             end if ;
@@ -84,7 +104,7 @@ begin
          -- the 16 bits received - we are saving 8 bits using right shift 
          if (sclk_counter > 4 and sclk_counter < 12)
             -- accept 1 bit       
-            data_bits(7) <= miso; 
+            data_bits(7) <= stable_miso; --need to account for delay here. count either clk / sclk
             -- right shift by 1 
             data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
                 
