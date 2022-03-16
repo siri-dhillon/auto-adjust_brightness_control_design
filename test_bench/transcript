@@ -1,0 +1,21 @@
+# Compile of spi_controller.vhd was successful.
+do run.do 
+# vsim -gui -onfinish stop -msgmode both -voptargs="+acc" work.spi_controller_tb 
+# Start time: 20:22:59 on Mar 15,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# WARNING: No extended dataflow license exists
+# Releasing reset
+# Expecting: 11111111
+add wave -position insertpoint sim:/spi_controller_tb/*
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/test_bench/wave.do
+# Break key hit
+# Simulation stop requested.
+# End time: 20:24:42 on Mar 15,2022, Elapsed time: 0:01:43
+# Errors: 0, Warnings: 3

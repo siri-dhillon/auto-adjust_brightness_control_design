@@ -1,8 +1,13 @@
-entity spi_master is
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity spi_controller is
     generic (
         clk_hz : integer; --FPGA clock 100 MHz
-        total_bits : integer --total bits tx by sensor chip
-        sclk_hz : integer); --sensor’s frequency 4MHz
+        total_bits : integer; --total bits tx by sensor chip
+        sclk_hz : integer --sensor’s frequency 4MHz
+        ); 
     port (
         --fpga system
         clk : in std_logic;
@@ -17,14 +22,14 @@ entity spi_master is
         ready : in std_logic;
         valid : out std_logic;
         data : out std_logic_vector(7 downto 0));
-end spi_master;
+end spi_controller;
 
-architecture rtl of spi_master is
+architecture rtl of spi_controller is
 
     type state_type is (IDLE, TRANSMISSION); 
     signal state : state_type;
 
-    signal data_bits : std_logic_vector(10 downto 0):="0000000000";
+    signal data_bits : std_logic_vector(7 downto 0):="00000000";
     signal sclk_counter : integer;
     signal clk_counter : integer;
     signal sclk_sig : std_logic;
@@ -34,25 +39,15 @@ architecture rtl of spi_master is
     signal inputFF2: std_logic;
     signal stable_miso: std_logic;
     
+    -- counter signal 
+    signal max_count : integer:=clk_hz/sclk_hz;
 
 begin 
 
--- PRESCALE_SCLK: entity work.scale_clock 
--- generic map(
---     fpga_clk => clk_hz;
---     pwm_clk => sclk_hz;
---     pwm_res => 8  -- check this later 
--- )
--- port map(
---     i_clk => clk;
---     i_rst => rst;
---     clock => sclk_sig
--- );
-
 --after 3 clocks, we will get a stable value
-SYNCHRONIZER: process (sclk) 
+SYNCHRONIZER: process (clk, miso,rst) 
 begin
-   if rising_edge(sclk) then
+   if rising_edge(clk) then
       inputFF  <= miso;
       inputFF2 <= inputFF;
       stable_miso <= inputFF2;
@@ -61,7 +56,7 @@ end process;
 
 
 
-SPI_MASTER_FSM_PROC: process(clk)
+spi_controller_FSM_PROC: process(clk)
 begin
   if rising_edge(clk) then
     if rst = '1' then
@@ -87,41 +82,34 @@ begin
             clk_counter <= 0;
             
             if (ready = '1') then
-                state <= TRANSMISSION
+                state <= TRANSMISSION;
             end if ;
                 
         when TRANSMISSION =>
          -- generate sclk 
-            if (clk_counter = (fpga_hz/sclk_hz)/2) then 
+            if (clk_counter = (max_count)/2) then 
                 sclk_counter <= sclk_counter + 1;
                 sclk_sig <= not sclk_sig;
-            elsif(clk_counter = fpga_hz/sclk_hz) then 
+            elsif(clk_counter = max_count) then 
                 sclk_sig <= not sclk_sig;
             end if;
             
             sclk <= sclk_sig;
             
          -- the 16 bits received - we are saving 8 bits using right shift 
-         if (sclk_counter > 4 and sclk_counter < 15) --read for another 3 cycles
+         if (sclk_counter > 3 and sclk_counter < 12) then --read for another 3 cycles
             -- accept 1 bit       
-            -- increased data bit by 3 to account for delay
             -- data inside data_bit will be XXX...101
-
-            data_bits(10) <= stable_miso; 
+            data_bits(7) <= stable_miso; 
             -- right shift by 1 
             data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
                 
          elsif (sclk_counter = 16) then 
             --remove garabage bit delay we put into data_bits and only grab the 8bits
-                data <= data_bits(7 downto 0);  
+                data <= data_bits;  
+                valid <= '1';
                 state <= IDLE;
          end if;
-
-
-
-        
-
-
       end case;
     end if;
   end if;

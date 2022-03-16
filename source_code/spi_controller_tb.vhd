@@ -27,6 +27,7 @@ architecture sim of spi_controller_tb is
 
   signal next_sample : unsigned(7 downto 0);
 
+  constant total_bits : integer := 0;
 begin
 
   clk <= not clk after clk_period / 2;
@@ -34,7 +35,7 @@ begin
   DUT : entity work.spi_controller(rtl)
   generic map (
     clk_hz => clk_hz,
-    --data_bits => -----
+    total_bits => total_bits,
     sclk_hz => sclk_hz
   )
   port map (
