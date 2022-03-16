@@ -40,9 +40,11 @@ architecture rtl of spi_controller is
     signal stable_miso: std_logic;
     
     -- counter signal 
-    signal max_count : integer:=clk_hz/sclk_hz;
+    signal max_count : integer;
 
 begin 
+
+max_count <= clk_hz/sclk_hz;
 
 --after 3 clocks, we will get a stable value
 SYNCHRONIZER: process (clk, miso,rst) 
@@ -60,13 +62,13 @@ spi_controller_FSM_PROC: process(clk)
 begin
   if rising_edge(clk) then
     if rst = '1' then
+        sclk_sig <= '0';
         state <= IDLE;
       -- when reset 
     else
 
     clk_counter <= clk_counter + 1; 
 
-    
       case state is
         
         when IDLE => 
@@ -87,20 +89,24 @@ begin
                 
         when TRANSMISSION =>
          -- generate sclk 
-            if (clk_counter = (max_count)/2) then 
+         -- If clock_counter is divisible by max count (3), then we flip the bits
+         -- every 3 clock cycles, we output 1 sclk_sig
+         -- previously, we enter if statement once and never again
+         -- eg. clk_counter = 3, then clk_counter++, but 3 stays the same
+
+            if ((clk_counter mod max_count) = 0) then 
+                sclk_sig <= not sclk_sig;
                 sclk_counter <= sclk_counter + 1;
-                sclk_sig <= not sclk_sig;
-            elsif(clk_counter = max_count) then 
-                sclk_sig <= not sclk_sig;
+                sclk <= sclk_sig;
             end if;
             
-            sclk <= sclk_sig;
             
          -- the 16 bits received - we are saving 8 bits using right shift 
          if (sclk_counter > 3 and sclk_counter < 12) then --read for another 3 cycles
             -- accept 1 bit       
             -- data inside data_bit will be XXX...101
-            data_bits(7) <= stable_miso; 
+            -- data_bits(7) <= stable_miso; 
+            data_bits(7) <= miso;  --TESTING WITHOUT SYNCHRONIZER
             -- right shift by 1 
             data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
                 
