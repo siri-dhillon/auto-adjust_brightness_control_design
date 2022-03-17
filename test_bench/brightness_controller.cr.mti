@@ -24,15 +24,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.3 Compiler 2020.07 Jul 
 -- Compiling entity scale_clock
 -- Compiling architecture Behavioral of scale_clock
 
-} {} {}} C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.3 Compiler 2020.07 Jul 22 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity als_bfm
--- Compiling architecture beh of als_bfm
-
 } {} {}} C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.3 Compiler 2020.07 Jul 22 2020
 -- Loading package STANDARD
@@ -44,5 +35,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.3 Compiler 2020.07 Jul 
 -- Compiling architecture sim of spi_controller_tb
 -- Loading entity spi_controller
 -- Loading entity als_bfm
+
+} {} {}} C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.3 Compiler 2020.07 Jul 22 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity als_bfm
+-- Compiling architecture beh of als_bfm
 
 } {} {}}

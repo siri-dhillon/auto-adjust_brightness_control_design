@@ -29,14 +29,14 @@ architecture rtl of spi_controller is
     type state_type is (IDLE, TRANSMISSION); 
     signal state : state_type;
 
-    signal data_bits : std_logic_vector(7 downto 0):="00000000";
+    signal data_bits : std_logic_vector(14 downto 0):="000000000000000";
     signal sclk_counter : integer;
     signal clk_counter : integer;
     signal sclk_sig : std_logic;
 
     --flipflop signals
-    signal inputFF: std_logic;
-    signal inputFF2: std_logic;
+    signal inputFF: std_logic_vector(3 downto 0);
+    -- signal inputFF2: std_logic;
     signal stable_miso: std_logic;
     
     -- counter signal 
@@ -44,16 +44,18 @@ architecture rtl of spi_controller is
 
 begin 
 
-max_count <= clk_hz/sclk_hz;
+max_count <= clk_hz/sclk_hz; -- this is equal to 25 
 
 --after 3 clocks, we will get a stable value
-SYNCHRONIZER: process (clk, miso,rst) 
+SYNCHRONIZER: process (clk, miso) 
 begin
    if rising_edge(clk) then
-      inputFF  <= miso;
-      inputFF2 <= inputFF;
-      stable_miso <= inputFF2;
-   end if;
+      inputFF(0)  <= miso;
+    for i in 0 to 2 loop
+      inputFF(i+1) <= inputFF(i);
+    end loop;
+    stable_miso <= inputFF(3);
+  end if;
 end process;
 
 
@@ -64,6 +66,7 @@ begin
     if rst = '1' then
         sclk_sig <= '0';
         state <= IDLE;
+        clk_counter <= 0; -- figure out where else to change clk_counter to zero
       -- when reset 
     else
 
@@ -76,46 +79,56 @@ begin
           -- outputs
             data_bits <= (others => '0');
             sclk <= '1';
+
             cs <= '1';
             valid <= '0';
 
             -- counters
             sclk_counter <= 0;
-            clk_counter <= 0;
             
-            if (ready = '1') then
+            if (ready = '1' ) then
+              if (clk_counter mod max_count = 0) then
                 state <= TRANSMISSION;
+              end if;
             end if ;
                 
         when TRANSMISSION =>
          -- generate sclk 
-         -- If clock_counter is divisible by max count (3), then we flip the bits
-         -- every 3 clock cycles, we output 1 sclk_sig
+         -- If clock_counter is divisible by max count (25), then we flip the bits
+         -- every 25 clock cycles, we output 1 sclk_sig
          -- previously, we enter if statement once and never again
-         -- eg. clk_counter = 3, then clk_counter++, but 3 stays the same
+         -- eg. clk_counter = 25, then clk_counter++, but 25 stays the same
 
+         -- accomodating wait for falling edge cs 
+            
+            
+            cs <= '0'; 
+
+            -- t_su delay = 10 ns 
+                -- create a wait for 10 ns before sclk first falling edge 
             if ((clk_counter mod max_count) = 0) then 
                 sclk_sig <= not sclk_sig;
-                sclk_counter <= sclk_counter + 1;
+                if (sclk_sig = '0') then 
+                  sclk_counter <= sclk_counter + 1;
+                  -- right shift by 1 
+                  data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
+                end if;
                 sclk <= sclk_sig;
             end if;
             
             
-         -- the 16 bits received - we are saving 8 bits using right shift 
-         if (sclk_counter > 3 and sclk_counter < 12) then --read for another 3 cycles
-            -- accept 1 bit       
-            -- data inside data_bit will be XXX...101
-            -- data_bits(7) <= stable_miso; 
-            data_bits(7) <= miso;  --TESTING WITHOUT SYNCHRONIZER
-            -- right shift by 1 
-            data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
-                
-         elsif (sclk_counter = 16) then 
-            --remove garabage bit delay we put into data_bits and only grab the 8bits
-                data <= data_bits;  
-                valid <= '1';
-                state <= IDLE;
-         end if;
+ 
+              -- accept 1 bit       
+              -- data inside data_bit will be XXX...101
+              data_bits(14) <= stable_miso; 
+              
+            if (sclk_counter = 16) then 
+                --remove garabage bit delay we put into data_bits and only grab the 8bits
+                            -- the 16 bits received - we are saving 8 bits using right shift 
+                    data <= data_bits(9 downto 2);  
+                    valid <= '1';
+                    state <= IDLE;
+            end if;
       end case;
     end if;
   end if;

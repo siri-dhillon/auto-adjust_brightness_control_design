@@ -10,7 +10,7 @@ end spi_controller_tb;
 
 architecture sim of spi_controller_tb is
 
-  constant clk_hz : integer := 12e6; -- 100MHz, slow down for simulation
+  constant clk_hz : integer := 100e6; -- 100MHz, slow down for simulation 
   constant clk_period : time := 1 sec / clk_hz;
 
   constant sclk_hz : integer := 4e6; --4MHz

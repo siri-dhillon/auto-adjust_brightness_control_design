@@ -1,7 +1,12 @@
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
 # Compile of spi_controller.vhd was successful.
-do run.do 
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
 # vsim -gui -onfinish stop -msgmode both -voptargs="+acc" work.spi_controller_tb 
-# Start time: 20:22:59 on Mar 15,2022
+# Start time: 23:14:37 on Mar 16,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -10,12 +15,158 @@ do run.do
 # Loading work.spi_controller_tb(sim)
 # Loading work.spi_controller(rtl)
 # Loading work.als_bfm(beh)
-# WARNING: No extended dataflow license exists
+# ** UI-Msg: (vish-4014) No objects found matching '/spi_controller_tb/DUT/inputFF2'.
+# Executing ONERROR command at macro ././wave.do line 31
 # Releasing reset
 # Expecting: 11111111
-add wave -position insertpoint sim:/spi_controller_tb/*
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/test_bench/wave.do
-# Break key hit
-# Simulation stop requested.
-# End time: 20:24:42 on Mar 15,2022, Elapsed time: 0:01:43
-# Errors: 0, Warnings: 3
+# ** Failure: Incorrect data received from DUT. Received: 00001111, Expected: 11111111
+#    Time: 8790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of spi_controller.vhd was successful.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller(rtl)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+#     Test: Passed. 
+# Expecting: 10000001
+# ** Failure: Incorrect data received from DUT. Received: ZZZZZZZZ, Expected: 10000001
+#    Time: 16790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: 00001111, Expected: 11111111
+#    Time: 8790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: 01111111, Expected: 11111111
+#    Time: 8790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+#     Test: Passed. 
+# Expecting: 10000001
+# ** Failure: Incorrect data received from DUT. Received: ZZZZZZZZ, Expected: 10000001
+#    Time: 16790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd failed with 1 errors.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 1 failed with 1 error.
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+#     Test: Passed. 
+# Expecting: 10000001
+# ** Failure: Incorrect data received from DUT. Received: ZZZZZZZZ, Expected: 10000001
+#    Time: 16790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave 
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 10000001
+#     Test: Passed. 
+# Expecting: 00000000
+# ** Failure: Incorrect data received from DUT. Received: ZZZZZZZZ, Expected: 00000000
+#    Time: 16790 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Releasing reset
+# Expecting: 11111111
+#     Test: Passed. 
+# Expecting: 10000001
+#     Test: Passed. 
+# Expecting: 00000000
+#     Test: Passed. 
+# Expecting: 10000000
+# ** Failure: Incorrect data received from DUT. Received: 00000001, Expected: 10000000
+#    Time: 33540 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 77
+# End time: 00:13:59 on Mar 17,2022, Elapsed time: 0:59:22
+# Errors: 1, Warnings: 1
