@@ -32,6 +32,21 @@ architecture rtl of top is
   type state_type is (WAITING, RECEIVING, SENDING); 
   signal state : state_type;
 
+
+  signal prescaler_clk_out : std_logic;
+  signal led_signal : std_logic;
+  signal pwm_count : integer :=0;
+  signal duty_cycle : std_logic_vector(7 downto 0):="00000000";
+  signal pwm_count_sig : integer := 0; 
+  signal pwm_out_signal : std_logic;
+
+  signal ready : std_logic;
+  signal valid : std_logic;
+
+  constant total_bits : integer := 16; --???????????
+  signal duty_cycle_int : integer :=0;
+  
+
 begin
   
   --port map DUT/ instantiate components here -----------------------
@@ -39,6 +54,7 @@ begin
 
 
 
+ 
 
 
 
@@ -80,5 +96,55 @@ begin
         end if;
       end if;
     end process;
+
+DUT_SCALE_CLOCK : entity work.scale_clock port map (
+      i_clk => clk,
+      i_rst => rst,
+      clock => prescaler_clk_out
+  );
+
+duty_cycle_int <= to_integer(unsigned(duty_cycle));
+DUT_PWM : entity work.pwm port map (
+      clk => prescaler_clk_out,
+      duty_cycle => duty_cycle_int,
+      pwm_count => pwm_count_sig,
+      pwm_out => pwm_out_signal
+  );
+
+DUT_SPI : entity work.spi_controller
+generic map (
+  clk_hz => clk_hz,
+  total_bits => total_bits,
+  sclk_hz => sclk_hz
+)
+port map (
+  clk => clk,
+  rst => rst,
+  cs => cs,
+  sclk => sclk,
+  miso => miso,
+  ready => ready,
+  valid => valid,
+  data => duty_cycle
+);
+
+RESERT_PROC : process(clk,rst)
+  begin
+      
+      if rst = '1' then 
+          led_signal <= '0';
+      else 
+          led_signal <= pwm_out_signal;
+      end if;
+  end process;
+
+led_out(7) <= led_signal;
+led_out(6) <= led_signal;
+led_out(5) <= led_signal;
+led_out(4) <= led_signal;
+led_out(3) <= led_signal;
+led_out(2) <= led_signal;
+led_out(1) <= led_signal;
+led_out(0) <= led_signal;
 
 end architecture;

@@ -27,7 +27,7 @@ architecture sim of spi_controller_tb is
 
   signal next_sample : unsigned(7 downto 0);
 
-  constant total_bits : integer := 0;
+  constant total_bits : integer := 16;
 begin
 
   clk <= not clk after clk_period / 2;

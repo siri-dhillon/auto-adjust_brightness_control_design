@@ -459,3 +459,24 @@ do run.do wave
 #     Test: Passed. 
 # Test: Completed
 # Break in Process SEQUENCER_PROC at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd line 98
+# Compile of top.vhd failed with 15 errors.
+# Compile of top.vhd failed with 8 errors.
+# Compile of top.vhd failed with 5 errors.
+# Compile of pwm.vhd was successful.
+# Compile of top.vhd failed with 2 errors.
+# Compile of top.vhd failed with 3 errors.
+# Compile of top.vhd failed with 2 errors.
+# Compile of top.vhd failed with 7 errors.
+# Compile of top.vhd failed with 2 errors.
+# Compile of top.vhd failed with 1 errors.
+# Compile of top.vhd failed with 1 errors.
+# Compile of top.vhd was successful with warnings.
+# Compile of top.vhd was successful.
+# Compile of als_bfm.vhd was successful.
+# Compile of reset_sync.vhd was successful.
+# Compile of scale_clock.vhd was successful.
+# Compile of spi_controller.vhd was successful.
+# Compile of spi_controller_tb.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of pwm.vhd was successful.
+# 7 compiles, 0 failed with no errors.
