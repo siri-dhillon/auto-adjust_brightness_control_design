@@ -480,3 +480,5 @@ do run.do wave
 # Compile of top.vhd was successful.
 # Compile of pwm.vhd was successful.
 # 7 compiles, 0 failed with no errors.
+# End time: 22:32:51 on Mar 17,2022, Elapsed time: 2:47:31
+# Errors: 0, Warnings: 17
