@@ -35,8 +35,8 @@ architecture rtl of spi_controller is
     signal sclk_sig : std_logic;
 
     --flipflop signals
-    signal inputFF: std_logic_vector(3 downto 0);
-    -- signal inputFF2: std_logic;
+    signal inputFF: std_logic;
+    signal inputFF2: std_logic;
     signal stable_miso: std_logic;
     
     -- counter signal 
@@ -47,17 +47,14 @@ begin
 max_count <= clk_hz/sclk_hz; -- this is equal to 25 
 
 --after 3 clocks, we will get a stable value
-SYNCHRONIZER: process (clk, miso) 
+SYNCHRONIZER: process (clk) 
 begin
    if rising_edge(clk) then
-      inputFF(0)  <= miso;
-    for i in 0 to 2 loop
-      inputFF(i+1) <= inputFF(i);
-    end loop;
-    stable_miso <= inputFF(3);
+        inputFF <= miso;
+        inputFF2 <= inputFF;
+        stable_miso <= inputFF2;
   end if;
 end process;
-
 
 
 spi_controller_FSM_PROC: process(clk)
