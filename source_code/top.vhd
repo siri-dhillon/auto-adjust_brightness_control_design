@@ -50,13 +50,36 @@ architecture rtl of top is
 begin
   
   --port map DUT/ instantiate components here -----------------------
+    DUT_SCALE_CLOCK : entity work.scale_clock port map (
+        i_clk => clk,
+        i_rst => rst,
+        clock => prescaler_clk_out
+    );
 
+    duty_cycle_int <= to_integer(unsigned(duty_cycle));
+    DUT_PWM : entity work.pwm port map (
+        clk => prescaler_clk_out,
+        duty_cycle => duty_cycle_int,
+        pwm_count => pwm_count_sig,
+        pwm_out => pwm_out_signal
+    );
 
-
-
- 
-
-
+    DUT_SPI : entity work.spi_controller
+    generic map (
+        clk_hz => clk_hz,
+        total_bits => total_bits,
+        sclk_hz => sclk_hz
+    )
+    port map (
+        clk => clk,
+        rst => rst,
+        cs => cs,
+        sclk => sclk,
+        miso => miso,
+        ready => ready,
+        valid => valid,
+        data => duty_cycle
+    );
 
    READY_FSM_PROC : process(clk)
     begin
@@ -97,36 +120,7 @@ begin
       end if;
     end process;
 
-DUT_SCALE_CLOCK : entity work.scale_clock port map (
-      i_clk => clk,
-      i_rst => rst,
-      clock => prescaler_clk_out
-  );
 
-duty_cycle_int <= to_integer(unsigned(duty_cycle));
-DUT_PWM : entity work.pwm port map (
-      clk => prescaler_clk_out,
-      duty_cycle => duty_cycle_int,
-      pwm_count => pwm_count_sig,
-      pwm_out => pwm_out_signal
-  );
-
-DUT_SPI : entity work.spi_controller
-generic map (
-  clk_hz => clk_hz,
-  total_bits => total_bits,
-  sclk_hz => sclk_hz
-)
-port map (
-  clk => clk,
-  rst => rst,
-  cs => cs,
-  sclk => sclk,
-  miso => miso,
-  ready => ready,
-  valid => valid,
-  data => duty_cycle
-);
 
 RESERT_PROC : process(clk,rst)
   begin
