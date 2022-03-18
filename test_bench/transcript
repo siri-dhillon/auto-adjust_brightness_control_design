@@ -7,9 +7,9 @@
 # Compile of pwm.vhd was successful.
 # Compile of top_tb.vhd was successful.
 # 8 compiles, 0 failed with no errors.
-do run2.do wave
+do run2.do 
 # vsim -gui -onfinish stop -msgmode both -voptargs="+acc" work.top_tb 
-# Start time: 12:53:32 on Mar 18,2022
+# Start time: 13:25:12 on Mar 18,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -17,26 +17,14 @@ do run2.do wave
 # Loading std.env(body)
 # Loading work.top_tb(sim)
 # Loading work.top(rtl)
-# Loading work.scale_clock(behavioral)
-# Loading work.pwm(rtl)
 # Loading work.spi_controller(rtl)
 # Loading work.reset_sync(rtl)
 # Loading work.als_bfm(beh)
-# ** UI-Msg: (vish-4014) No objects found matching '/top_tb/ready'.
-# Executing ONERROR command at macro ././wave.do line 8
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/DUT
 # Releasing reset
 # Expecting: 11111111
-# Expecting: 10000001
-# Expecting: 00000000
-# Expecting: 10000000
-# Expecting: 00000001
-# Expecting: 11110000
-# Expecting: 10101010
-# Expecting: 00001111
-# Test: Completed
-# Break in Process SEQUENCER_PROC at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 92
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
 # Compile of als_bfm.vhd was successful.
 # Compile of reset_sync.vhd was successful.
 # Compile of scale_clock.vhd was successful.
@@ -46,32 +34,29 @@ do run2.do wave
 # Compile of pwm.vhd was successful.
 # Compile of top_tb.vhd was successful.
 # 8 compiles, 0 failed with no errors.
-do run2.do wave
+do run2.do 
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.top_tb(sim)
 # Loading work.top(rtl)
-# Loading work.scale_clock(behavioral)
-# Loading work.pwm(rtl)
 # Loading work.spi_controller(rtl)
 # Loading work.reset_sync(rtl)
 # Loading work.als_bfm(beh)
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
+add wave -r sim:/top_tb/*
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/test_bench/wave.do
+do run2.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/DUT
 # Releasing reset
 # Expecting: 11111111
-# Expecting: 10000001
-# Expecting: 00000000
-# Expecting: 10000000
-# Expecting: 00000001
-# Expecting: 11110000
-# Expecting: 10101010
-# Expecting: 00001111
-# Test: Completed
-# Break in Process SEQUENCER_PROC at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 92
-add wave -position insertpoint sim:/top_tb/DUT/DUT_SPI/*
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
 # Compile of als_bfm.vhd was successful.
 # Compile of reset_sync.vhd was successful.
 # Compile of scale_clock.vhd was successful.
@@ -79,30 +64,77 @@ add wave -position insertpoint sim:/top_tb/DUT/DUT_SPI/*
 # Compile of spi_controller_tb.vhd was successful.
 # Compile of top.vhd was successful.
 # Compile of pwm.vhd was successful.
+# Compile of top_tb.vhd failed with 1 errors.
+# 8 compiles, 1 failed with 1 error.
 # Compile of top_tb.vhd was successful.
-# 8 compiles, 0 failed with no errors.
 do run2.do wave
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.top_tb(sim)
 # Loading work.top(rtl)
-# Loading work.scale_clock(behavioral)
-# Loading work.pwm(rtl)
 # Loading work.spi_controller(rtl)
 # Loading work.reset_sync(rtl)
 # Loading work.als_bfm(beh)
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/DUT
 # Releasing reset
 # Expecting: 11111111
-# Expecting: 10000001
-# Expecting: 00000000
-# Expecting: 10000000
-# Expecting: 00000001
-# Expecting: 11110000
-# Expecting: 10101010
-# Expecting: 00001111
-# Test: Completed
-# Break in Process SEQUENCER_PROC at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 93
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
+quit -sim
+# End time: 13:31:16 on Mar 18,2022, Elapsed time: 0:06:04
+# Errors: 1, Warnings: 1
+do run2.do 
+# vsim -gui -onfinish stop -msgmode both -voptargs="+acc" work.top_tb 
+# Start time: 13:31:23 on Mar 18,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.top_tb(sim)
+# Loading work.top(rtl)
+# Loading work.spi_controller(rtl)
+# Loading work.reset_sync(rtl)
+# Loading work.als_bfm(beh)
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
+do run2.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 1020 ns  Iteration: 0  Process: /top_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 71
+# WARNING: No extended dataflow license exists
+do run.do 
+# End time: 13:32:51 on Mar 18,2022, Elapsed time: 0:01:28
+# Errors: 1, Warnings: 1
+# vsim -gui -onfinish stop -msgmode both -voptargs="+acc" work.spi_controller_tb 
+# Start time: 13:32:51 on Mar 18,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.spi_controller_tb(sim)
+# Loading work.spi_controller(rtl)
+# Loading work.als_bfm(beh)
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 6040 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 137
+add wave -position insertpoint sim:/spi_controller_tb/*
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/test_bench/wave.do
+do run.do wave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Releasing reset
+# Expecting: 11111111
+# ** Failure: Incorrect data received from DUT. Received: UUUUUUUU, Expected: 11111111
+#    Time: 6040 ns  Iteration: 1  Process: /spi_controller_tb/SEQUENCER_PROC File: C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+# Break in Subprogram verify at C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd line 137
+add wave -position insertpoint sim:/spi_controller_tb/DUT/*

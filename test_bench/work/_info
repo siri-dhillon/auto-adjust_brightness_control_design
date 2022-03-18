@@ -14,7 +14,7 @@ Z0 w1647500159
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 403
+!i122 457
 Z4 dC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/test_bench
 Z5 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd
 Z6 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd
@@ -24,9 +24,9 @@ V=^T]AUNKeQh0<5A?d;NJJ2
 !s100 VUPLdFjNchQ5jPk:6G=_T0
 Z7 OV;C;2020.3;71
 32
-Z8 !s110 1647633526
+Z8 !s110 1647635378
 !i10b 1
-Z9 !s108 1647633526.000000
+Z9 !s108 1647635378.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd|
 Z11 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/als_bfm.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 Z14 DEx4 work 7 als_bfm 0 22 =^T]AUNKeQh0<5A?d;NJJ2
-!i122 403
+!i122 457
 l41
 L17 74
 Vo8<EUZlbCG:T19haeS:810
@@ -57,7 +57,7 @@ Z15 w1647579398
 R1
 R2
 R3
-!i122 409
+!i122 463
 R4
 Z16 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/pwm.vhd
 Z17 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/pwm.vhd
@@ -67,9 +67,9 @@ VGg?KhQkDDNA>DFCGmYb5d1
 !s100 Y>^8[Th0kjzAR^V@k78T92
 R7
 32
-Z18 !s110 1647633527
+Z18 !s110 1647635379
 !i10b 1
-Z19 !s108 1647633527.000000
+Z19 !s108 1647635379.000000
 Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/pwm.vhd|
 Z21 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/pwm.vhd|
 !i113 1
@@ -79,8 +79,8 @@ Artl
 R1
 R2
 R3
-Z22 DEx4 work 3 pwm 0 22 Gg?KhQkDDNA>DFCGmYb5d1
-!i122 409
+DEx4 work 3 pwm 0 22 Gg?KhQkDDNA>DFCGmYb5d1
+!i122 463
 l22
 L18 31
 VV[EB1W@2@V4zN>XBD9Hig0
@@ -96,66 +96,66 @@ R21
 R12
 R13
 Ereset_sync
-Z23 w1647630280
+Z22 w1647630280
 R2
 R3
-!i122 404
+!i122 458
 R4
-Z24 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd
-Z25 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd
+Z23 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd
+Z24 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd
 l0
 L4 1
 V_S4@iPz<z5o?89;OLF;3E0
 !s100 ^_ee:;GTHE2=OmFTai3]_1
 R7
 32
-R8
+R18
 !i10b 1
-R9
-Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd|
-Z27 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd|
+R19
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd|
+Z26 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/reset_sync.vhd|
 !i113 1
 R12
 R13
 Artl
 R2
 R3
-Z28 DEx4 work 10 reset_sync 0 22 _S4@iPz<z5o?89;OLF;3E0
-!i122 404
+Z27 DEx4 work 10 reset_sync 0 22 _S4@iPz<z5o?89;OLF;3E0
+!i122 458
 l35
 L22 48
 VYh]=5X>AP0WaOLO46=Y2:2
 !s100 QYMzN5jgMOR3;A8z[9Ci42
 R7
 32
-R8
+R18
 !i10b 1
-R9
+R19
+R25
 R26
-R27
 !i113 1
 R12
 R13
 Escale_clock
-Z29 w1647309663
+Z28 w1647633838
 R1
 R2
 R3
-!i122 405
+!i122 459
 R4
-Z30 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd
-Z31 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd
+Z29 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd
+Z30 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd
 l0
 L8 1
 Vlc]gcM`cJAK1F_;MIo^Rh3
 !s100 MReDESLzWg;JV^PMjJ<ga1
 R7
 32
-R8
+R18
 !i10b 1
-R9
-Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd|
-Z33 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd|
+R19
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd|
+Z32 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/scale_clock.vhd|
 !i113 1
 R12
 R13
@@ -163,31 +163,31 @@ Abehavioral
 R1
 R2
 R3
-Z34 DEx4 work 11 scale_clock 0 22 lc]gcM`cJAK1F_;MIo^Rh3
-!i122 405
+DEx4 work 11 scale_clock 0 22 lc]gcM`cJAK1F_;MIo^Rh3
+!i122 459
 l34
 L24 31
 VQ;I=Lg=cDV_?155KcV=WI3
 !s100 C]X]m6@Y8S]CY8G2UUm^C2
 R7
 32
-R8
+R18
 !i10b 1
-R9
+R19
+R31
 R32
-R33
 !i113 1
 R12
 R13
 Espi_controller
-Z35 w1647577422
+Z33 w1647634056
 R1
 R2
 R3
-!i122 406
+!i122 460
 R4
-Z36 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd
-Z37 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd
+Z34 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd
+Z35 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd
 l0
 L5 1
 VT=V`iaN0eL85SG0hkUej;1
@@ -197,8 +197,8 @@ R7
 R18
 !i10b 1
 R19
-Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd|
-Z39 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd|
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd|
+Z37 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller.vhd|
 !i113 1
 R12
 R13
@@ -206,8 +206,8 @@ Artl
 R1
 R2
 R3
-Z40 DEx4 work 14 spi_controller 0 22 T=V`iaN0eL85SG0hkUej;1
-!i122 406
+Z38 DEx4 work 14 spi_controller 0 22 T=V`iaN0eL85SG0hkUej;1
+!i122 460
 l50
 L27 124
 Vk^ge0Bcn4H6`^fH2;KA0]0
@@ -217,21 +217,21 @@ R7
 R18
 !i10b 1
 R19
-R38
-R39
+R36
+R37
 !i113 1
 R12
 R13
 Espi_controller_tb
-Z41 w1647581408
-Z42 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+Z39 w1647581408
+Z40 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
 R1
 R2
 R3
-!i122 407
+!i122 461
 R4
-Z43 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
-Z44 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+Z41 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
+Z42 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd
 l0
 L8 1
 Vf]cYF<8WV:9biYk3Eg4>C2
@@ -241,54 +241,57 @@ R7
 R18
 !i10b 1
 R19
-Z45 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd|
-Z46 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd|
+Z43 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd|
+Z44 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/spi_controller_tb.vhd|
 !i113 1
-Z47 o-work work -2008 -explicit
+Z45 o-work work -2008 -explicit
 R13
 Asim
+Z46 w1647635402
 R14
+R38
 R40
-R42
 R1
 R2
 R3
-DEx4 work 17 spi_controller_tb 0 22 f]cYF<8WV:9biYk3Eg4>C2
-!i122 407
-l31
-L11 91
-V[1Ed?ECXXilUQ4=odzYmc2
-!s100 ;hz_18dT[SPFOH>ge[`RR3
+Z47 DEx4 work 17 spi_controller_tb 0 22 f]cYF<8WV:9biYk3Eg4>C2
+!i122 465
+Z48 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+Z49 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
+l35
+L11 153
+VOoB4[MViWQd>^>0U]Lo[[2
+!s100 4[A:`CC>QSW^Y5OP1T>>D3
 R7
 33
-R18
+Z50 !s110 1647635425
 !i10b 1
-R19
-R45
-R46
+Z51 !s108 1647635425.000000
+Z52 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd|
+Z53 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd|
 !i113 1
-R47
+R45
 R13
 Espi_master
-Z48 w1647399683
+Z54 w1647399683
 R1
 R2
 R3
 !i122 13
 R4
-R36
-R37
+R34
+R35
 l0
 L5 1
 V?doZSD=>S?b9bUBFn:i9^0
 !s100 ^PXUaGNCjNoK;4<50kDU11
 R7
 32
-Z49 !s110 1647399693
+Z55 !s110 1647399693
 !i10b 1
-Z50 !s108 1647399693.000000
-R38
-R39
+Z56 !s108 1647399693.000000
+R36
+R37
 !i113 1
 R12
 R13
@@ -304,23 +307,23 @@ V5n2iNZ5OAn0VcS]aSeR[M3
 !s100 K5nMF3ed_[<SIlQ?@BjQm3
 R7
 32
-R49
+R55
 !i10b 1
-R50
-R38
-R39
+R56
+R36
+R37
 !i113 1
 R12
 R13
 Etop
-Z51 w1647631779
+Z57 w1647634122
 R1
 R2
 R3
-!i122 408
+!i122 462
 R4
-Z52 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd
-Z53 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd
+Z58 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd
+Z59 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd
 l0
 L5 1
 VRWRc4gh<OV4bFHWD`Tlce0
@@ -330,79 +333,78 @@ R7
 R18
 !i10b 1
 R19
-Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd|
-Z55 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd|
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd|
+Z61 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top.vhd|
 !i113 1
 R12
 R13
 Artl
-R28
-R40
-R22
-R34
+R27
+R38
 R1
 R2
 R3
-Z56 DEx4 work 3 top 0 22 RWRc4gh<OV4bFHWD`Tlce0
-!i122 408
+Z62 DEx4 work 3 top 0 22 RWRc4gh<OV4bFHWD`Tlce0
+!i122 462
 l51
-L21 137
-V8_:e8LW>2KdR0kLCcf=D60
-!s100 ik3nS9:YZlmeEfn<m<BYG3
+L21 138
+V7n9HYliXz_L=I6XV<^S1l3
+!s100 lS770=LkQ4b6?zl=GK;:;1
 R7
 32
-R18
-!i10b 1
-R19
-R54
-R55
-!i113 1
-R12
-R13
-Etop_tb
-Z57 w1647633518
-R42
-R1
-R2
-R3
-!i122 410
-R4
-Z58 8C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
-Z59 FC:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd
-l0
-L8 1
-Va7F?0`GAE]^Z:I3B^hTb13
-!s100 1nfN:Xdj?6[[Yj^6lA`[]2
-R7
-33
-R18
-!i10b 1
-R19
-Z60 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd|
-Z61 !s107 C:/Users/sirpr/Git-stuff/auto-adjust_brightness_control_design/source_code/top_tb.vhd|
-!i113 1
-R47
-R13
-Asim
-R14
-R56
-R42
-R1
-R2
-R3
-Z62 DEx4 work 6 top_tb 0 22 a7F?0`GAE]^Z:I3B^hTb13
-!i122 410
-l30
-L11 86
-VYJ9:8LC;ak8kmn3X=SSYz0
-!s100 ^NFai>fm<K_BQek]`YQV;2
-R7
-33
 R18
 !i10b 1
 R19
 R60
 R61
 !i113 1
-R47
+R12
 R13
+Etop_tb
+R46
+R40
+R1
+R2
+R3
+!i122 465
+R4
+R48
+R49
+l0
+L8 1
+Va7F?0`GAE]^Z:I3B^hTb13
+!s100 1nfN:Xdj?6[[Yj^6lA`[]2
+R7
+33
+R50
+!i10b 1
+R51
+R52
+R53
+!i113 1
+R45
+R13
+Asim
+R14
+R62
+R40
+R1
+R2
+R3
+DEx4 work 6 top_tb 0 22 a7F?0`GAE]^Z:I3B^hTb13
+!i122 436
+l30
+L11 86
+V4hC>kRHXfbFNG0J3BDT913
+!s100 mP]RdUPYGF>=Z;UC9^@B00
+R7
+33
+!s110 1647634167
+!i10b 1
+!s108 1647634167.000000
+R52
+R53
+!i113 1
+R45
+R13
+w1647634160

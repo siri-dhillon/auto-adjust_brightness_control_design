@@ -1,17 +1,19 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /top_tb/clk
-add wave -noupdate /top_tb/rst
-add wave -noupdate /top_tb/cs
-add wave -noupdate /top_tb/sclk
-add wave -noupdate /top_tb/miso
-add wave -noupdate /top_tb/ready
-add wave -noupdate /top_tb/valid
-add wave -noupdate /top_tb/data
-add wave -noupdate /top_tb/next_sample
+add wave -noupdate /spi_controller_tb/state
+add wave -noupdate /spi_controller_tb/clk
+add wave -noupdate /spi_controller_tb/rst
+add wave -noupdate /spi_controller_tb/cs
+add wave -noupdate /spi_controller_tb/sclk
+add wave -noupdate /spi_controller_tb/miso
+add wave -noupdate /spi_controller_tb/ready
+add wave -noupdate /spi_controller_tb/valid
+add wave -noupdate /spi_controller_tb/data
+add wave -noupdate /spi_controller_tb/next_sample
+add wave -noupdate /spi_controller_tb/clk_counter
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {232 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
