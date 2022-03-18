@@ -42,6 +42,7 @@ architecture rtl of top is
 
   signal ready : std_logic;
   signal valid : std_logic;
+  signal d_rst : std_logic;
 
   constant total_bits : integer := 16; --???????????
   signal duty_cycle_int : integer :=0;
@@ -52,7 +53,7 @@ begin
   --port map DUT/ instantiate components here -----------------------
     DUT_SCALE_CLOCK : entity work.scale_clock port map (
         i_clk => clk,
-        i_rst => rst,
+        i_rst => d_rst,
         clock => prescaler_clk_out
     );
 
@@ -72,7 +73,7 @@ begin
     )
     port map (
         clk => clk,
-        rst => rst,
+        rst => d_rst,
         cs => cs,
         sclk => sclk,
         miso => miso,
@@ -81,10 +82,22 @@ begin
         data => duty_cycle
     );
 
+    DUT_Deboucer_Reset: entity work.reset_sync 
+      generic map(
+        rst_strobe_cycles => 128,
+        rst_in_active_value => '1',
+        rst_out_active_value => '1'
+      )
+      port map (
+        clk => clk, -- Slowest clock that uses rst_out
+        rst_in => rst,
+        rst_out => d_rst
+      );
+
    READY_FSM_PROC : process(clk)
     begin
       if rising_edge(clk) then
-        if rst = '1' then
+        if d_rst = '1' then
           clk_counter <= (others => '0');
           state <= WAITING;
           ready <= '0';
@@ -122,10 +135,10 @@ begin
 
 
 
-RESERT_PROC : process(clk,rst)
+RESERT_PROC : process(clk,d_rst)
   begin
       
-      if rst = '1' then 
+      if d_rst = '1' then 
           led_signal <= '0';
       else 
           led_signal <= pwm_out_signal;
