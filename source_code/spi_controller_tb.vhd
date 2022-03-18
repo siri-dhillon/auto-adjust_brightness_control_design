@@ -92,6 +92,7 @@ begin
     verify("11110000");
     verify("10101010");
     verify("00001111");
+    
     print("Test: Completed");
 
     finish;

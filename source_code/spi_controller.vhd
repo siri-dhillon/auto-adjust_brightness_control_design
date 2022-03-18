@@ -41,6 +41,11 @@ architecture rtl of spi_controller is
     
     -- counter signal 
     signal max_count : integer;
+    
+    -- sclk rising edge and falling edge signal
+      -- if sclk_edge = 1 then it is rising edge 
+      -- else it is falling edge
+    signal sclk_rising_edge: std_logic:='0';
 
 begin 
 
@@ -84,7 +89,9 @@ begin
             sclk_counter <= 0;
             
             if (ready = '1' ) then
-              if (clk_counter mod max_count = 0) then
+              --tCS Minimum CS pulse width should be minimum of 10 ns.
+              --We set to 20ns
+              if (clk_counter mod 2 = 0) then
                 state <= TRANSMISSION;
               end if;
             end if ;
@@ -108,7 +115,10 @@ begin
                 if (sclk_sig = '0') then 
                   sclk_counter <= sclk_counter + 1;
                   -- right shift by 1 
-                  data_bits <= std_logic_vector(shift_right(unsigned(data_bits), 1));
+                  -- the data bits shuft right every time sclk pulses 
+                  data_bits <= std_logic_vector(shift_left(unsigned(data_bits), 1)); 
+                else 
+                  sclk_rising_edge <= '1'; 
                 end if;
                 sclk <= sclk_sig;
             end if;
@@ -117,13 +127,20 @@ begin
  
               -- accept 1 bit       
               -- data inside data_bit will be XXX...101
-              data_bits(14) <= stable_miso; 
-              
-            if (sclk_counter = 16) then 
+              -- reading values at rising edge 
+              if sclk_rising_edge = '1' then 
+                data_bits(0) <= stable_miso; 
+                sclk_rising_edge <= '0';
+              end if;
+            
+           
+            -- on the 11th sclk cycle - data is passed to output data and valid is set to 1
+            if (sclk_counter = 12) then 
                 --remove garabage bit delay we put into data_bits and only grab the 8bits
                             -- the 16 bits received - we are saving 8 bits using right shift 
-                    data <= data_bits(9 downto 2);  
-                    valid <= '1';
+                            data <= data_bits(8 downto 1);  
+                            valid <= '1';
+            elsif (sclk_counter = 16) then 
                     state <= IDLE;
             end if;
       end case;
